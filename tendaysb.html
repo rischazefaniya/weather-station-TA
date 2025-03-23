@@ -24,37 +24,32 @@
               <a class="nav-link" href="hourly.html">Hourly</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="tenday.html">10 Days</a>
+              <a class="nav-link" href="tenday.html">10 Day</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <!-- End Navbar -->
-
-    <!-- Container for 10 cards -->
     <div class="container mt-5 pt-5">
       <div class="container text-center">
-        <h2 class="display-3" id="today">Weather Prediction in 10 Days</h2>
+        <h2 class="display-3" id="today">Data Cuaca 10 Hari Kebelakang</h2>
       </div>
-      <a href="tendaysb.html">10 Hari Sebelumnya</a>
       <div class="row" id="weather-cards"></div>
     </div>
-
     <script>
-      // Fungsi untuk menampilkan 10 hari ke depan
+      // Fungsi untuk menampilkan 10 hari terakhir
       function displayWeatherCards() {
         const container = document.getElementById("weather-cards");
         const today = new Date(); // Mendapatkan tanggal hari ini
 
         // Loop untuk membuat 10 kartu cuaca
         for (let i = 0; i < 10; i++) {
-          let futureDate = new Date(today);
-          futureDate.setDate(today.getDate() + i + 1); // Menambahkan i hari
+          let pastDate = new Date(today);
+          pastDate.setDate(today.getDate() - (i + 1)); // Mengurangi i hari
 
           // Format tanggal (contoh: "12 Desember 2024")
           const options = { year: "numeric", month: "long", day: "numeric" };
-          const formattedDate = futureDate.toLocaleDateString("id-ID", options);
+          const formattedDate = pastDate.toLocaleDateString("id-ID", options);
 
           // Menggunakan gambar cloudy.png untuk semua kartu
           const weatherImageURL = "assets/style/cloudy.png";
@@ -64,18 +59,18 @@
           card.classList.add("col-md-4", "mb-4");
 
           card.innerHTML = `
-            <div class="card shadow-sm position-relative">
-              <div class="card-body">
-                <!-- Gambar cuaca di kanan atas -->
-                <img src="${weatherImageURL}" alt="Weather Icon" class="position-absolute top-0 end-0 p-2" style="width: 100px; height: 100px;">
-                <h5 class="card-title">${formattedDate}</h5>
-                <p class="card-text"><strong>Suhu:</strong></p>
-                <p class="card-text"><strong>Kelembapan:</strong></p>
-                <p class="card-text"><strong>Tekanan Udara:</strong></p>
-                <p class="card-text"><strong>Curah Hujan:</strong></p>
+              <div class="card shadow-sm position-relative">
+                <div class="card-body">
+                  <!-- Gambar cuaca di kanan atas -->
+                  <img src="${weatherImageURL}" alt="Weather Icon" class="position-absolute top-0 end-0 p-2" style="width: 100px; height: 100px;">
+                  <h5 class="card-title">${formattedDate}</h5>
+                  <p class="card-text"><strong>Suhu:</strong></p>
+                  <p class="card-text"><strong>Kelembapan:</strong></p>
+                  <p class="card-text"><strong>Tekanan Udara:</strong></p>
+                  <p class="card-text"><strong>Curah Hujan:</strong></p>
+                </div>
               </div>
-            </div>
-          `;
+            `;
 
           container.appendChild(card); // Menambahkan kartu ke dalam container
         }

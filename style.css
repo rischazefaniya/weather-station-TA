@@ -10,18 +10,18 @@
 
 .temperature {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #a66e38;
+  color: #fff;
 }
 
 .description {
   font-family: Georgia, "Times New Roman", Times, serif;
-  color: #a66e38;
+  color: #fff;
   font-size: 1, 1875em;
 }
 
 .place {
   font-family: Georgia, "Times New Roman", Times, serif;
-  color: #a66e38;
+  color: #fff;
 }
 
 .date h5,
@@ -30,8 +30,5 @@
 }
 
 .card {
-  background-color: #fef9d9;
-}
-
-.ikonCuaca {
+  background-color: #8eaccd;
 }

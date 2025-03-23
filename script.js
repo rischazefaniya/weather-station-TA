@@ -15,3 +15,5 @@ month[9] = "Oktober";
 month[10] = "November";
 month[11] = "Desember";
 document.getElementById("month").innerHTML = month[d.getMonth()];
+
+const weatherImageURL = "assets/style/today.png";
